@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hotel{
+    int roomNo;
+    string name;
+    int perDayCharge;
+    int noOfDays;
+    void calc(){
+        double final=noOfDays*perDayCharge;
+        if(final>10000.0){
+            cout<<"Total amount : "<<(final*1.05)<<endl;
+        }
+    }
+    
+    public:
+        void checkIn(){
+            printf("\t\t\t\t---Welcome to the Hotel---\n");
+            printf("Enter your Details : \n");
+            printf("Enter your name Sir/Madam : "); cin>>name;
+            printf("Enter your Room Number : "); cin>>roomNo;
+            printf("Enter the per day charge  :"); cin>>perDayCharge;
+            printf("Enter the no of days : "); cin>>noOfDays;
+        }
+        void checkOut(){
+            printf("\t\t\t\t---Details---\n");
+            printf("Name : "); cout<<name<<endl;
+            printf("Room no : "); cout<<roomNo<<endl;
+            printf("Tariff Data : "); cout<<perDayCharge<<endl;
+            printf("No of days : "); cout<<noOfDays<<endl;
+            int final=noOfDays*perDayCharge;
+            if(final>10000){
+                calc();
+                return;
+            }
+        }
+};
+
+int main(){
+    Hotel h;
+    h.checkIn();
+    h.checkOut();
+}

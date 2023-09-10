@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class UserTwo;
+class UserOne{
+    public:
+        string name;
+        string Fname;
+        string Mname;
+        char gender;
+        void inputInfo(){
+            cout<<"Enter info : \n";
+            cout<<"Enter name : ";
+            cin>>name;
+            cout<<"Enter father's name : ";
+            cin>>Fname;
+            cout<<"Enter mother's name : ";
+            cin>>Mname;
+            cout<<"Enter gender ? (m/f) : ";
+            cin>>gender;
+        }
+        friend void Userchecker(UserOne,UserTwo);
+};
+
+class UserTwo{
+    public:
+        string name;
+        string Fname;
+        string Mname;
+        char gender;
+        void inputInfo(){
+            cout<<"Enter info : \n";
+            cout<<"Enter name : ";
+            cin>>name;
+            cout<<"Enter father's name : ";
+            cin>>Fname;
+            cout<<"Enter mother's name : ";
+            cin>>Mname;
+            cout<<"Enter gender ? (m/f) : ";
+            cin>>gender;
+        }
+        friend void Userchecker(UserOne,UserTwo);
+        
+};
+
+bool operator==(UserOne &p,UserTwo& o){
+        return p.Fname == o.Fname && p.Mname == o.Mname;
+}
+
+void Userchecker(UserOne u,UserTwo v){
+    bool check=u==v;
+    if(check){
+        cout<<"Belongs to Same Family"<<endl;        
+        cout<<"We are brother and sister"<<endl;        
+    }
+    else cout<<"Belongs to different Family"<<endl;
+}
+
+int main(){
+    UserOne u;
+    UserTwo v;
+    u.inputInfo();
+    v.inputInfo();
+    Userchecker(u,v);
+}

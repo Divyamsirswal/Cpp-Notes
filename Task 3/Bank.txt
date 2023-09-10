@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Bank{
+    string name;
+    int accountNo;
+    char accountType;
+    int current;
+    int saving;
+    int balanceAmount;
+    public:
+        void inputData(){
+            cout << "--Welcome to the HDFC bank--" << endl;
+            cout << "---Enter the details---" << endl;
+            cout << "Enter your name : "; cin>>name;
+            cout << "Enter your accountNo : "; cin>>accountNo;
+            cout << "Enter your account type ? (s/c) : "; cin>>accountType;
+        }
+        
+        void depositAmount(){
+            cout << "--Welcome to deposit section--" << endl;
+            cout << "Where you want to deposit ? (s/c) : ";
+            char ch; cin >> ch;
+            cout << "Enter the amount to be deposit : ";
+            cin >> balanceAmount;
+            if(ch=='s'){
+                saving+=balanceAmount; //No intrest on saving account
+            }
+            else{
+                current+=balanceAmount-100; //intrest on current account
+            }
+        }
+        
+        void withdrawAmount(){
+            cout << "--Welcome to withdraw section--" << endl;
+            if(balanceAmount>100){
+                cout << "Enter the account type ? (s/c) : ";
+                char ch; cin >> ch;
+                int amount;
+                if(ch=='s'){
+                    cout << "Enter the amount : ";
+                    cin>>amount;
+                    cout<<"Successfull :)"<<endl;
+                    cout<<"Remaining Balance -> Saving : "<<balanceAmount-amount<<endl;
+                    saving=balanceAmount-amount;
+                }
+                else{
+                    cout << "Enter the amount : ";
+                    cin>>amount;
+                    cout<<"Successfull :)"<<endl;
+                    cout<<"Remaining Balance -> Current : "<<balanceAmount-amount<<endl;
+                    current=balanceAmount-amount;
+                }
+            }
+        }
+
+        void display(){
+            cout << "Enter the account type ? (s/c) : ";
+            char ch; cin >> ch;
+            if(ch=='s'){
+                cout<<"----Thank you----"<<endl;
+                cout<<"Name : "<<name<<endl;
+                cout<<"Balance Amount -> Saving : "<<saving<<endl;
+            }
+            else{
+                cout<<"----Thank you----"<<endl;
+                cout<<"Name : "<<name<<endl;
+                cout<<"Balance Amount -> Current : "<<current<<endl;
+            }
+        }
+};
+
+int main(){
+    Bank b;
+    b.inputData();
+    b.depositAmount();
+    b.withdrawAmount();
+    b.display();
+}

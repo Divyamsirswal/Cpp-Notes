@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class AreaCalc{
+    public:
+        void Area(int);
+        void Area(int,int);
+        void Area(double);
+        void Area(double,double);
+};
+
+void AreaCalc::Area(int a){
+    cout<<"The area of Square : "<<a*a<<endl;
+}
+
+void AreaCalc::Area(int a,int b){
+    cout<<"The area of Rectangle : "<<a*b<<endl;
+}
+
+void AreaCalc::Area(double b){
+    cout<<"The area of Circle : "<<3.14*b*b<<endl;
+}
+
+void AreaCalc::Area(double a,double b){
+    cout<<"The area of triangle : "<<0.5*a*b<<endl;
+}
+
+int main(){
+    AreaCalc a1;
+    a1.Area(2);
+    a1.Area(1,2);
+    a1.Area(3.4);
+    a1.Area(13.4,45.2);
+}
+

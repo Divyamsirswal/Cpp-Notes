@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+#include<conio.h>
+
+using namespace std;
+
+class TollBooth{
+    unsigned int totalNoOfCars;
+    double totalAmountMoney;
+
+    public:
+        TollBooth(){
+            this->totalNoOfCars=0;
+            this->totalAmountMoney=0;
+        }
+    
+        void payingCar(){
+            totalNoOfCars++;
+            totalAmountMoney+=0.5;
+        }
+
+        void nonPayCar(){
+            totalNoOfCars++;
+        }
+
+        void display(){
+            cout<<"Total no of cars : "<<totalNoOfCars<<endl;
+            cout<<"Total amount of money : "<<totalAmountMoney<<endl;
+        }
+};
+
+int main(){
+    TollBooth t;
+    while(1){
+        printf("Enter the choice : \n");
+        char ch=_getch();
+
+        if(ch==27){
+            t.display();
+        }
+        else if(ch=='P' || ch=='p'){
+            t.payingCar();
+        }
+        else if(ch=='N' || ch=='n'){
+            t.nonPayCar();
+        }
+        else{
+            printf("Invalid choice !!");
+            exit(0);
+        }
+    }
+
+}
